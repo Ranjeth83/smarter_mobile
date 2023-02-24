@@ -1,6 +1,7 @@
+
 <div class="center_hello">
 <br/>
-Do you want go back to <button><%= link_to "Stores", stores_url %></button><br/><br/>
+Do you want go to <button><%= link_to "Stores", stores_url %></button><br/><br/>
 
 <%= form_for(:search,:url=>"/gallery/search") do |f| %>
 Search <input type="text" placeholder="Search by type" name="search">
