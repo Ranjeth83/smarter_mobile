@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+ <% @store.files.each do |file| %>
+   <%= link_to file.filename, rails_blob_path(file, disposition: :attachment) %>
+ <% end %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @store.name %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @store.category %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @store.color %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @store.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @store.price %>
+</p>
+
+<strong>Files:</strong>
+ <% @store.files.each do |file| %>
+  <%= image_tag file,width:"250px"%>
+  <% end %><br/>
+
+<%= link_to 'Edit', edit_store_path(@store) %> |
+<%= link_to 'Back', stores_path %>

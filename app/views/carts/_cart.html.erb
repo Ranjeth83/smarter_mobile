@@ -1,0 +1,21 @@
+<br/><div class = "center" >
+<% unless cart.line_items.empty? %>
+<div class="cart_title">Your Cart</div>
+<table>
+	<%= render(cart.line_items) %>
+	<tr>
+		<td colspan="2">Total</td>
+		<td class="total_cell"><%= cart.total_price %></td>
+	</tr>
+</table>
+<%= button_to 'Empty Cart', cart, :method => :delete, :confirm => 'Are you sure?' %><br/>
+<p>
+	<button><%= link_to "Continue Shopping",:controller=>"gallery",:action=>"index" %></button> | 
+	<% if user_signed_in? %>
+	<button><%= link_to "Checkout",:controller=>"gallery",:action=>"checkout",:amount=>cart.total_price%></button>
+	<% else %>
+	<button><%= link_to "Checkout",:controller=>"admin",:action=>"login" %></button>
+	<% end %>
+</p>
+<% end %>
+</div><br/>

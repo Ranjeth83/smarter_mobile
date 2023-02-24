@@ -1,0 +1,25 @@
+<table>
+
+<tr>
+<% count=0 %>
+<% @mobiles_gallery.each do |mobile|%>
+
+<% if (count % 3) == 0%>
+</tr>
+<tr>
+<% end %>
+<% count+=1 %>
+<td><br />
+
+<% if mobile.files.attached? %>
+<%= image_tag mobile.files.first, alt:"#"%>
+  <% end %><br/>
+  
+Model : <%= mobile.name %><br />
+Category :<%= mobile.category %><br />
+color : <%= mobile.color %><br />
+price : <%= mobile.price %><br/><br/>
+<%= button_to 'Add to Cart', line_items_path(:store_id => mobile.id) %></td>
+<% end %>
+</tr>
+</table>
